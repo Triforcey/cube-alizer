@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cube Edge Sampler and Renderer</title>
+  <!-- Include MathQuill CSS -->
+  <link rel="stylesheet" href="mathquill-0.10.1/mathquill.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <h1>Cube Edge Sampler and Renderer</h1>
+
+  <div>
+    <h2>Enter Cube Corner Coordinates</h2>
+    <label>x1: <input type="number" id="x1" value="-1"></label>
+    <label>y1: <input type="number" id="y1" value="2"></label>
+    <label>z1: <input type="number" id="z1" value="-1"></label>
+    <br><br>
+    <label>x2: <input type="number" id="x2" value="1"></label>
+    <label>y2: <input type="number" id="y2" value="3"></label>
+    <label>z2: <input type="number" id="z2" value="1"></label>
+    <br><br>
+    <label>Sample Rate (N): <input type="number" id="sampleRate" value="3" min="2"></label>
+    <br><br>
+    <label>Angle of View (degrees): <input type="number" id="angleOfView" value="90" min="1" max="179"></label>
+    <br><br>
+    <!-- Projection Equations Inputs -->
+    <h2>Projection Equations</h2>
+    <label>
+      Projection Equation for \( x' \):
+      <span id="projEqX" class="mathquill-editable"></span>
+    </label>
+    <br><br>
+    <label>
+      Projection Equation for \( y' \):
+      <span id="projEqY" class="mathquill-editable"></span>
+    </label>
+    <br><br>
+    <label>
+      Rotation Speed Y-axis (RPM):
+      <input type="range" id="rpmSliderY" min="0" max="60" value="10">
+      <span id="rpmValueY">10</span> RPM
+    </label>
+    <br><br>
+    <label>
+      Rotation Speed Z-axis (RPM):
+      <input type="range" id="rpmSliderZ" min="0" max="60" value="0">
+      <span id="rpmValueZ">0</span> RPM
+    </label>
+    <br><br>
+    <label>
+      Rotate Around:
+      <select id="rotationCenter">
+        <option value="origin">Origin</option>
+        <option value="cubeCenter" selected>Cube Center</option>
+      </select>
+    </label>
+    <br><br>
+    <label>
+      X-axis Oscillation Amplitude:
+      <input type="range" id="oscillationAmpX" min="0" max="5" step="0.1" value="0">
+      <span id="oscillationAmpXValue">0</span>
+    </label>
+    <br><br>
+    <label>
+      Y-axis Oscillation Amplitude:
+      <input type="range" id="oscillationAmpY" min="0" max="5" step="0.1" value="0">
+      <span id="oscillationAmpYValue">0</span>
+    </label>
+    <br><br>
+    <label>
+      Z-axis Oscillation Amplitude:
+      <input type="range" id="oscillationAmpZ" min="0" max="5" step="0.1" value="0">
+      <span id="oscillationAmpZValue">0</span>
+    </label>
+    <br><br>
+    <button id="renderButton">Render Points</button>
+  </div>
+
+  <div id="canvas-container">
+    <canvas id="canvas" width="600" height="600"></canvas>
+  </div>
+
+  <!-- Include jQuery, MathQuill, and Evaluatex.js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="mathquill-0.10.1/mathquill.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/evaluatex@2.2.0/dist/evaluatex.min.js"></script>
+
+  <!-- Include your script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
